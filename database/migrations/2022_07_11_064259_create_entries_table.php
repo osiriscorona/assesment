@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->unsignedBigInteger('parent_id')->nullable();
-            $table->unsignedInteger('max_childs')->default(0);
             $table->timestamps();
         });
     }
