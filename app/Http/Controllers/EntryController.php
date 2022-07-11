@@ -16,4 +16,13 @@ class EntryController extends Controller
             'allEntries' => Entry::all(),
         ]);
     }
+
+    public function store(Request $request){
+        $entry = new Entry;
+        $entry->title = $request->title;
+        $entry->parent_id = $request->parent;
+        $entry->save();
+
+        return redirect()->route('entries.index');
+    }
 }

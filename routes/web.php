@@ -4,12 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\EntryController;
 
-Route::get('entries',[EntryController::class, 'index'])->name('entries.index');
-Route::post('entries', [EntryController::class, 'store'])->name('entries.store');
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('entries',[EntryController::class, 'index'])->middleware(['auth'])->name('entries.index');
+Route::post('entries', [EntryController::class, 'store'])->middleware(['auth'])->name('entries.store');
 
 require __DIR__.'/auth.php';
